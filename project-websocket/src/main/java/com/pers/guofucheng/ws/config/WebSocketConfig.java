@@ -1,10 +1,12 @@
-package com.pers.guofucheng.websocker.module.config;
+package com.pers.guofucheng.ws.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
+/**
+ * 配置webSocket
+ */
 @Configuration
 public class WebSocketConfig {
     /**

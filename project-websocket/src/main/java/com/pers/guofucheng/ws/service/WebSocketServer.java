@@ -1,4 +1,4 @@
-package com.pers.guofucheng.ws.config;
+package com.pers.guofucheng.ws.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,7 @@ import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
 
-@ServerEndpoint("/webSocketServer/{sid}")
+@ServerEndpoint("/webSocketServer/{id}")
 @RestController
 public class WebSocketServer {
 
@@ -24,17 +24,17 @@ public class WebSocketServer {
     //与某个客户端的连接会话，需要通过它来给客户端发送数据
     private Session session;
 
-    //接收sid
-    private String sid="";
+    //接收id
+    private String id="";
     /**
      * 连接建立成功调用的方法*/
     @OnOpen
-    public void onOpen(Session session,@PathParam("sid") String sid) {
+    public void onOpen(Session session,@PathParam("id") String id) {
         this.session = session;
         webSocketSet.add(this);     //加入set中
         addOnlineCount();           //在线数加1
-        log.info("欢迎:"+sid+",当前在线人数为" + getOnlineCount());
-        this.sid=sid;
+        log.info("欢迎:"+id+",当前在线人数为" + getOnlineCount());
+        this.id=id;
         try {
             sendMessage("连接成功");
         } catch (IOException e) {
@@ -58,7 +58,7 @@ public class WebSocketServer {
      * @param message 客户端发送过来的消息*/
     @OnMessage
     public void onMessage(String message, Session session) {
-        log.info("收到来自窗口"+sid+"的信息:"+message);
+        log.info("收到来自窗口"+id+"的信息:"+message);
         //群发消息
         for (WebSocketServer item : webSocketSet) {
             try {
@@ -89,22 +89,22 @@ public class WebSocketServer {
     /**
      * 群发自定义消息
      * */
-    public static void sendInfo(@PathParam("sid") String sid,@PathParam("message")String message) throws IOException {
-        log.info("推送消息到窗口"+sid+"，推送内容:"+message);
+    public static void sendInfo(@PathParam("id") String id,@PathParam("message")String message) throws IOException {
+        log.info("推送消息到窗口"+id+"，推送内容:"+message);
         log.info("webSocketSet长度:{}",webSocketSet.size());
         for (WebSocketServer item : webSocketSet) {
             try {
-                //这里可以设定只推送给这个sid的，为null则全部推送
-                if (StringUtils.isEmpty(sid) || "null".equals(sid)){
-                    log.info("sid为null");
+                //这里可以设定只推送给这个id的，为null则全部推送
+                if (StringUtils.isEmpty(id) || "null".equals(id)){
+                    log.info("id为null");
                     item.sendMessage(message);
                 }
-                if (item.sid.equals(sid)){
-                    log.info("sid为:{}",sid);
+                if (item.id.equals(id)){
+                    log.info("id为:{}",id);
                     item.sendMessage(message);
                 }
             } catch (IOException e) {
-                log.info("发送失败sid:{}",sid);
+                log.info("发送失败id:{}",id);
                 continue;
             }
         }

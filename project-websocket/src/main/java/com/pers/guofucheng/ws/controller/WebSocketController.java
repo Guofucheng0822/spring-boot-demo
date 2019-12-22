@@ -1,7 +1,6 @@
 package com.pers.guofucheng.ws.controller;
 
-import com.e6yun.project.util.EmailUtil;
-import com.pers.guofucheng.ws.config.WebSocketServer;
+import com.pers.guofucheng.ws.service.WebSocketServer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -30,9 +29,5 @@ public class WebSocketController {
             log.info("发送异常");
             e.printStackTrace();
         }
-    }
-    @PostMapping("/sendEmail")
-    public void sendEmail(){
-        EmailUtil.sendEmail("627355704@qq.com","中燃测试土关村场站报警");
     }
 }
