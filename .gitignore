@@ -1,0 +1,29 @@
+*.class
+*.log
+*.iml
+
+# Package Files #
+*.war
+*.ear
+*.jar
+
+# ide files #
+.classpath
+.project
+.mymetadata
+/.gradle/
+/.idea/
+/captures/
+.DS_Store
+.idea/
+Jenkinsfile
+# setting folders #
+.settings/
+.svn/
+.bin/
+.git/
+target/
+lib/
+rebel.xml
+
+/tmp.txt
