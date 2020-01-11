@@ -32,4 +32,12 @@ public class MessageReceiverController {
         logger.info("执行当前方法所用的时间:{} 毫秒",end-begin);
         return messagePO;
     }
+
+    @RequestMapping("/findById")
+    public MessagePO findById(Integer id) throws InterruptedException {
+        logger.info("id:{}",id);
+        MessagePO messagePO =messageReceiverService.findByMessageId(id);
+        Thread.sleep(5);
+        return messagePO;
+    }
 }
