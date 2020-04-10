@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * 测试地址 1.http://127.0.0.1:8080/message/findByMessag?messageId=1
  */
 @SpringBootApplication
-public class MyAOPApplication {
+public class MyApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MyAOPApplication.class);
+        SpringApplication.run(MyApplication.class);
     }
 }

@@ -1,4 +1,4 @@
-package com.pers.guofucheng.email.service;
+package guofucheng.sms.service;
 
 import javafx.application.Application;
 import org.junit.Test;
