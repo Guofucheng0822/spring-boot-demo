@@ -21,8 +21,8 @@ public class SmsUtil {
     static final String domain = "dysmsapi.aliyuncs.com";
 
     // TODO 此处需要替换成开发者自己的AK(在阿里云访问控制台寻找)
-    static final String accessKeyId = "LTAI4Fe5m6h9kQR1rhbJ8mvf";
-    static final String accessKeySecret = "rWijKF6xsGNbXeiHPMFLPBOTqnv3s3";
+    static final String accessKeyId = "";
+    static final String accessKeySecret = "";
 
     /**
      * Created on 17/6/7.信API产品的DEMO程序,工程中包含了一个SmsDemo类，直接通过
@@ -74,7 +74,7 @@ public class SmsUtil {
     public static void main(String[] args) throws ClientException, InterruptedException {
 
         //发短信
-        SendSmsResponse response = sendSms("13891037913","6987");
+        SendSmsResponse response = sendSms("13891037914","6987");
         System.out.println("短信接口返回的数据----------------");
         System.out.println("Code=" + response.getCode());
         System.out.println("Message=" + response.getMessage());
