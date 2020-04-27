@@ -1,5 +1,9 @@
 package com.pers.guofucheng.aop.constant;
 
+/**
+ * @author guofucheng
+ */
+
 public enum OperationType {
     INSERT(1,"新增"),
     DELETE(2,"删除"),

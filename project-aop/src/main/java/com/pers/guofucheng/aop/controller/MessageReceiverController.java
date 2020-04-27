@@ -19,13 +19,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/message")
 public class MessageReceiverController {
+
     Logger logger = LoggerFactory.getLogger(MessageReceiverController.class);
+
     @Autowired
     private MessageReceiverService messageReceiverService;
 
-    @OperationLog(operationName = "查询消息",operationType = "查询")
-    @RequestMapping("/findByMessag")
-    public MessagePO findByMessag(Integer messageId) throws InterruptedException {
+    /**
+     * 第一种切面拦截方式，直接拦截方法
+     * @param messageId
+     * @return
+     * @throws InterruptedException
+     */
+    @RequestMapping("/findByMessageId")
+    public MessagePO findByMessageId(Integer messageId) throws InterruptedException {
         logger.info("messageId:{}",messageId);
         long begin = System.currentTimeMillis();
         MessagePO messagePO =messageReceiverService.findByMessageId(messageId);
@@ -35,7 +42,13 @@ public class MessageReceiverController {
         return messagePO;
     }
 
-    @OperationLog(operationName = "查询消息",operationType = "查询")
+    /**
+     * 第二种切面拦截方式，直接拦截注解
+     * @param id
+     * @return
+     * @throws InterruptedException
+     */
+    @OperationLog(operationName = "通过id查询消息",operationType = "查询")
     @RequestMapping("/findById")
     public MessagePO findById(Integer id) throws InterruptedException {
         logger.info("id:{}",id);
