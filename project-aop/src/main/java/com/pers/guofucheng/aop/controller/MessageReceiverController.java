@@ -1,5 +1,6 @@
 package com.pers.guofucheng.aop.controller;
 
+import com.pers.guofucheng.aop.annotation.OperationLog;
 import com.pers.guofucheng.aop.po.MessagePO;
 import com.pers.guofucheng.aop.service.MessageReceiverService;
 import org.slf4j.Logger;
@@ -22,6 +23,7 @@ public class MessageReceiverController {
     @Autowired
     private MessageReceiverService messageReceiverService;
 
+    @OperationLog(operationName = "查询消息",operationType = "查询")
     @RequestMapping("/findByMessag")
     public MessagePO findByMessag(Integer messageId) throws InterruptedException {
         logger.info("messageId:{}",messageId);
@@ -33,6 +35,7 @@ public class MessageReceiverController {
         return messagePO;
     }
 
+    @OperationLog(operationName = "查询消息",operationType = "查询")
     @RequestMapping("/findById")
     public MessagePO findById(Integer id) throws InterruptedException {
         logger.info("id:{}",id);
