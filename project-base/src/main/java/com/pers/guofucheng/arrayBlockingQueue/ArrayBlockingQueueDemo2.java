@@ -10,8 +10,8 @@ import java.util.concurrent.*;
  */
 public class ArrayBlockingQueueDemo2 {
     private static BlockingQueue queue = new ArrayBlockingQueue(3);
-    private static ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
-    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 5, 60L, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1), threadFactory);
+//    private static ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("demo-pool-%d").build();
+    private static ThreadPoolExecutor executor = new ThreadPoolExecutor(3, 5, 60L, TimeUnit.SECONDS, new ArrayBlockingQueue<>(1));
 
     public static void main(String[] args) {
         for (int i = 0; i < 2; i++) {
