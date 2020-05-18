@@ -1,0 +1,23 @@
+<configuration>
+    <!--输出日志信息的位置  控制台-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--输出日志信息的位置  文件-->
+    <appender name="STDOUT" class="ch.qos.logback.core.FileAppender">
+        <file>C:/develop/javaproject/spring-boot-demo/project-slf4j/src/main/java/com/pers/log/test.log</file>
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--输出日志的级别(包含指定的级别)-->
+    <root level="INFO">
+        <!--输出日志信息的位置-->
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>

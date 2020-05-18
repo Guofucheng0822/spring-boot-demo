@@ -53,6 +53,7 @@ public class RabbitConfig {
      */
     @Bean(name="centerDataTopicExchange")
     public Exchange createCenterDataTopiceExchange(){
+        log.info("创建终端数据接收交换机");
         //指定交换机的名称   durable(true)持久化，消息队列重启后交换机仍然存在
         return ExchangeBuilder.topicExchange(EXAMPLE_EXCHANGE_CENTER_DATA).durable(true).build();
     }
