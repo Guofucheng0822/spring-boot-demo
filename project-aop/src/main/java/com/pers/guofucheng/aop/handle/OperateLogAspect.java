@@ -20,15 +20,15 @@ import org.springframework.stereotype.Component;
  * @Copyright 2019-2020
  */
 @Component
-@Aspect
+@Aspect//声明这是一个切面
 public class OperateLogAspect {
     Logger logger = LoggerFactory.getLogger(OperateLogAspect.class);
 
-    @Pointcut("execution(* com.pers.guofucheng.aop.controller.MessageReceiverController*.*(..))")
+    @Pointcut("execution(* com.pers.guofucheng.aop.controller.MessageReceiverController*.*(..))")//切入点 切入点表达式
     private void excutePointMethod(){
 
     }
-    @Pointcut("@annotation(com.pers.guofucheng.aop.annotation.OperationLog)")
+    @Pointcut("@annotation(com.pers.guofucheng.aop.annotation.OperationLog)")//切入点 切入点表达式
     private void excutePointAnno(){
 
     }
