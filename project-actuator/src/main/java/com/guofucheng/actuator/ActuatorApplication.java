@@ -7,8 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * springBoot启动类
  */
 @SpringBootApplication
-public class MyApplication {
+public class ActuatorApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MyApplication.class);
+        SpringApplication.run(ActuatorApplication.class);
     }
 }

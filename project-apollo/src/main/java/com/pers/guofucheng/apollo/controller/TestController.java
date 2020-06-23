@@ -20,7 +20,7 @@ public class TestController {
     @RequestMapping("get")
     public String get(){
         int batch = testJavaConfigBean.getBatch();
-        int timeout = testJavaConfigBean.getTimeout();
+        String timeout = testJavaConfigBean.getTimeout();
         return "batch:"+batch+", timeout:"+timeout;
     }
 

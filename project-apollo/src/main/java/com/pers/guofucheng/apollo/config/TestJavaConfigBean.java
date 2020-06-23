@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
  * @date 2020/06/18
  */
 public class TestJavaConfigBean {
-  @Value("${timeout:100}")
-  private int timeout;
+  @Value("${qrCode.img.path:aaaaaaa}")
+  private String timeout;
   private int batch;
  
   @Value("${batch:200}")
@@ -18,7 +18,7 @@ public class TestJavaConfigBean {
     this.batch = batch;
   }
  
-  public int getTimeout() {
+  public String getTimeout() {
     return timeout;
   }
  
