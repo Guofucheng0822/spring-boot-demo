@@ -1,5 +1,7 @@
 package com.pers.guofucheng;
 
+import org.springframework.boot.SpringApplication;
+
 /**
  * springboot+redis启动类
  *
@@ -8,6 +10,6 @@ package com.pers.guofucheng;
  */
 public class RedisApplication {
     public static void main(String[] args) {
-
+        SpringApplication.run(RedisApplication.class);
     }
 }
