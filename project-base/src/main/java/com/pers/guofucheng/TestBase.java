@@ -29,4 +29,21 @@ public class TestBase {
         String hh = baseCxl.hh();
         System.out.println(hh);
     }
+
+    public static void main(String[] args) {
+        double sqrt = sqrt(45);
+        double sqrt1 = Math.sqrt(10.1);
+        System.out.println(sqrt);
+        System.out.println(sqrt1);
+    }
+
+    private static double sqrt(double x) {
+        double g=x;
+        while(Math.abs(g*g-x)>0.000001)
+        {
+            g=(g+x/g)/2;
+        }
+        return g;
+    }
+
 }
