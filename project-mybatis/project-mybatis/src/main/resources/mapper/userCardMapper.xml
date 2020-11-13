@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pers.guofucheng.mapper.UserCardMapper">
+
+    <resultMap id="userCardMap" type="com.pers.guofucheng.pojo.UserCard">
+        <id column="card_id" property="cardId" jdbcType="INTEGER" javaType="int"/>
+        <result column="card_name" property="cardName" jdbcType="VARCHAR" javaType="string"/>
+        <result column="card_uage" property="cardUage" jdbcType="INTEGER" javaType="int"/>
+    </resultMap>
+
+    <select id="findByCardId" parameterType="int" resultMap="userCardMap">
+        select card_id,card_name,card_uage from user_card where card_id = #{cardId}
+    </select>
+
+</mapper>

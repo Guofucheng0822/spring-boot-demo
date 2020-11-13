@@ -2,11 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pers.guofucheng.mapper.UserMapper">
 
+    <resultMap id="userMap" type="com.pers.guofucheng.pojo.User">
+        <id column="uid" property="uid" jdbcType="INTEGER" javaType="int"/>
+        <result column="uname" property="uname" jdbcType="VARCHAR" javaType="string"/>
+        <result column="uage" property="uage" jdbcType="INTEGER" javaType="int"/>
+        <result column="foreign_id" property="foreignId" jdbcType="INTEGER" javaType="int"/>
+        <!--property为映射属性 column为传递的参数【表字段名称】 select为执行的级联操作-->
+        <association property="userCard"
+                     column="foreign_id"
+                     select="com.pers.guofucheng.mapper.UserCardMapper.findByCardId"/>
+        <collection property="courseList"
+                    column="foreign_id"
+                    select="com.pers.guofucheng.mapper.UserCardMapper."/>
+    </resultMap>
+
     <!--id ="接口中的方法名"
     　　parameterType="传入的参数类型"
     　　resultType = "返回实体类对象，使用包.类名"-->
 
-    <select id="findByUid" parameterType="int" resultType="com.pers.guofucheng.pojo.User">
-        select * from users where uid = #{id}
+    <select id="findByUid" parameterType="int" resultMap="userMap">
+        select * from user where uid = #{id}
     </select>
 </mapper>

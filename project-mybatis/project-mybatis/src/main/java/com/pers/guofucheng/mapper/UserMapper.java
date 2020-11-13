@@ -10,5 +10,5 @@ import com.pers.guofucheng.pojo.User;
  */
 public interface UserMapper {
 
-    public User findByUid(Integer uid);
+    User findByUid(Integer uid);
 }
