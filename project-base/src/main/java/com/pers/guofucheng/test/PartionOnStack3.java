@@ -2,7 +2,7 @@ package com.pers.guofucheng.test;
 
 /**
  * 不会发生逃逸
- *
+ * -server -Xmx10m -Xms10m -XX:+DoEscapeAnalysis -XX:+PrintGC -XX:-UseTLAB -XX:+EliminateAllocations
  * @author guofucheng
  * @date 2021/03/02
  */
