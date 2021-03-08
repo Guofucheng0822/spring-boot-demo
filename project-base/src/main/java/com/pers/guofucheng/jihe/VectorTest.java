@@ -1,6 +1,4 @@
-package com.pers.guofucheng.arraylist;
-
-import org.junit.Test;
+package com.pers.guofucheng.jihe;
 
 import java.util.Vector;
 

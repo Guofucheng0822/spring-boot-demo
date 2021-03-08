@@ -20,7 +20,7 @@ public class LinkedListTest {
         list.add(111);
         Object o = list.get(0);
         System.out.println(o);
-//        ListIterator listIterator = list.listIterator();
+//        ListIterator listIterator = jihe.listIterator();
 //        while (listIterator.hasNext()){
 //            Object next = listIterator.next();
 //            System.out.println(next);

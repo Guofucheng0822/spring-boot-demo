@@ -1,4 +1,4 @@
-package com.pers.guofucheng.arraylist;
+package com.pers.guofucheng.jihe;
 
 import org.junit.Test;
 
@@ -63,7 +63,7 @@ public class ArrayListTest {
         //8的二进制1000，右移一位100
         int a=20 >> 1;
         System.out.println(a);
-        ArrayList list=new ArrayList();
+        ArrayList list=new ArrayList(5);
         list.add(1);
     }
 
@@ -102,6 +102,12 @@ public class ArrayListTest {
         user = new User();
         user.setName("name");
         user.setAge(1000);
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Object> objects = new ArrayList<>(2);
+        objects.add(1);
+        objects.get(0);
     }
 }
 
