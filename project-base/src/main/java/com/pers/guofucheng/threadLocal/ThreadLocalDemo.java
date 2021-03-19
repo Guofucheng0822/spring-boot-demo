@@ -5,6 +5,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
+/**
+ * ThreadLocalDemo
+ * 经典文章：https://www.cnblogs.com/jiangxinlingdu/p/11055540.html
+ * @author guofucheng
+ * @date 2021/03/19
+ */
 public class ThreadLocalDemo {
     /*定义了1个ThreadLocal<Integer>对象，
      *并复写它的initialValue方法，初始值是3*/
