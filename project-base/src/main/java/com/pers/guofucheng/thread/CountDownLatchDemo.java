@@ -10,18 +10,19 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
+ * 模拟线程池异步处理数据，然后按照顺序统一提交
  * CountDownLatch研究分析
  *
  * @author guofucheng
  * @date 2021/03/25
  */
-public class Parallellimit {
+public class CountDownLatchDemo {
     List list;
     public static void main(String[] args) {
 
-        Parallellimit parallellimit=new Parallellimit();
+        CountDownLatchDemo countDownLatchDemo=new CountDownLatchDemo();
         List list=new ArrayList();
-        parallellimit.setList(list);
+        countDownLatchDemo.setList(list);
         final CountDownLatch countDownLatch = new CountDownLatch(100);
         ExecutorService pool = Executors.newFixedThreadPool(5);
         Object[] array=new Object[100];
@@ -47,8 +48,8 @@ public class Parallellimit {
             e.printStackTrace();
         }
 
-        parallellimit.setList(Arrays.asList(array));
-        System.out.println(JSON.toJSONString(parallellimit));
+        countDownLatchDemo.setList(Arrays.asList(array));
+        System.out.println(JSON.toJSONString(countDownLatchDemo));
     }
 
     public List getList() {
