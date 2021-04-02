@@ -1,5 +1,6 @@
 package com.pers.guofucheng.jihe;
 
+import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -39,11 +40,11 @@ public class ArrayListTest {
     public void test1() {
         String str = "";
         int i = 0;
-        User user = null;
+        User user = new User();
         setDate(str, i, user);
         System.out.println("str:" + str);
         System.out.println("i:" + i);
-        System.out.println("user:" + user);
+        System.out.println("user:" + JSON.toJSONString(user));
     }
 
     public void test2() {
@@ -57,6 +58,7 @@ public class ArrayListTest {
         //1.底层使用数组的原因是：下标查询、连续内存、存储的对象类型相同
         //2.get(i) = 数组的起始位置 + i * 元素占用的内存；时间复杂度为 O(1)\
         list3.add(1);
+        list3.get(1);
     }
     @Test
     public void test3(){
