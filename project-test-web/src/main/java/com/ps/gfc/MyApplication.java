@@ -1,4 +1,4 @@
-package com.pers.guofucheng;
+package com.ps.guofucheng;
 
 import com.cfg.demo.hello.service.LoginService;
 import org.springframework.boot.SpringApplication;

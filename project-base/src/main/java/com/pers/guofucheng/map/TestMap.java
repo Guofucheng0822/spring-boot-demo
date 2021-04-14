@@ -13,7 +13,7 @@ import java.util.Map;
 public class TestMap {
 
     public static void main(String[] args) {
-        Map map=new HashMap(16);
+        HashMap map=new HashMap(16);
         Object a = map.put("a", "100");
         System.out.println(map);
         Object b = map.put("b", "200");

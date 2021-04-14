@@ -12,7 +12,7 @@ public class BussinessClass {
 		String tName = Thread.currentThread().getName();
 		try {
 			System.out.println(tName + "-开始获取锁..........");
-			lock.lockInterruptibly();
+			lock.lockInterruptibly();//该方法可以持有锁对象，但是如果调用了interrupt方法可以中断线程执行
  
 			System.out.println(tName + "-获取到锁了！！！！");
 			System.out.println(tName + "-睡觉了，睡个30秒！");

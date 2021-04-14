@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
+
 @RestController
 @RequestMapping("/mycache")
 public class MyCacheController {
@@ -20,6 +22,9 @@ public class MyCacheController {
 
     @RequestMapping(value = "/get",method = RequestMethod.POST)
     public String get(String key){
+        HashMap map=new HashMap(16);
+        map.put("aaa","aaa");
+        map.get("aaa");
         return myCache.get(key);
     }
 

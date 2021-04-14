@@ -35,6 +35,8 @@ public class FastQueryLinkedList {
         linkedList.add(7);
         linkedList.add(8);
         linkedList.add(9);
+        linkedList.remove("");
+
         System.out.println("中间的节点是:"+queryMiddleElement(linkedList));;
 
     }
