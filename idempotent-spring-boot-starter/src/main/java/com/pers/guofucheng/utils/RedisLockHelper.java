@@ -56,10 +56,9 @@ public class RedisLockHelper {
      */
     public boolean lock(String lockKey, final String uuid, long timeout, final TimeUnit unit) {
         final long milliseconds = Expiration.from(timeout, unit).getExpirationTimeInMilliseconds();
-        boolean success = stringRedisTemplate.opsForValue().setIfAbsent(lockKey, (System.currentTimeMillis() + milliseconds) + DELIMITER + uuid);
-        if (success) {
-            stringRedisTemplate.expire(lockKey, timeout, TimeUnit.SECONDS);
-        } else {
+        boolean success = stringRedisTemplate.opsForValue().setIfAbsent(lockKey, (System.currentTimeMillis() + milliseconds) + DELIMITER + uuid, timeout, TimeUnit.SECONDS);
+        System.out.println(success+"====================");
+        if (!success) {
             String oldVal = stringRedisTemplate.opsForValue().getAndSet(lockKey, (System.currentTimeMillis() + milliseconds) + DELIMITER + uuid);
             final String[] oldValues = oldVal.split(Pattern.quote(DELIMITER));
             if (Long.parseLong(oldValues[0]) + 1 <= System.currentTimeMillis()) {

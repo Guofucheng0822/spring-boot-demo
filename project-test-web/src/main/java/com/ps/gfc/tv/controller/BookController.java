@@ -1,4 +1,4 @@
-package com.ps.guofucheng.tv.controller;
+package com.ps.gfc.tv.controller;
 
 import com.pers.guofucheng.annotation.CacheLock;
 import com.pers.guofucheng.annotation.CacheParam;

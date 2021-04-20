@@ -1,4 +1,4 @@
-package com.ps.guofucheng;
+package com.ps.gfc;
 
 import com.cfg.demo.hello.service.LoginService;
 import org.springframework.boot.SpringApplication;
