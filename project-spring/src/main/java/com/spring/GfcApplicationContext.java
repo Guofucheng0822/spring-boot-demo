@@ -1,5 +1,7 @@
 package com.spring;
 
+import cn.hutool.core.util.StrUtil;
+
 import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -97,7 +99,9 @@ public class GfcApplicationContext {
         // 先得到包路径
         ComponentScan componentScanAnnotation = (ComponentScan) configClass.getAnnotation(ComponentScan.class);
         String packagePath = componentScanAnnotation.value();
-
+        if (StrUtil.isEmpty(packagePath)){
+            packagePath = configClass.getPackage().getName();
+        }
 //        System.out.println(packagePath); // 得到了扫描包路径
 
         // 扫描包路径得到classList
