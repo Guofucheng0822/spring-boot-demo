@@ -10,5 +10,6 @@ public class CopyOnWriteArrayListTest {
         CopyOnWriteArrayList copyOnWriteArrayList=new CopyOnWriteArrayList();
         copyOnWriteArrayList.add(0);
         copyOnWriteArrayList.add(1,1);
+        copyOnWriteArrayList.remove("");
     }
 }
