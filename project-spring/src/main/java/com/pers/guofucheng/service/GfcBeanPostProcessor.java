@@ -8,11 +8,11 @@ public class GfcBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public void postProcessBeforeInitialization(String beanName, Object bean) {
-
+        System.out.println("=====1.postProcessBeforeInitialization=====");
     }
 
     @Override
     public void postProcessAfterInitialization(String beanName, Object bean) {
-        System.out.println("postProcessAfterInitialization");
+        System.out.println("=====2.postProcessAfterInitialization=====");
     }
 }

@@ -1,7 +1,6 @@
 package com.ps.gfc.tv.controller;
 
-import com.pers.guofucheng.annotation.CacheLock;
-import com.pers.guofucheng.annotation.CacheParam;
+import com.pers.guofucheng.config.SSHHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,16 +18,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/books")
 public class BookController {
     private final StringRedisTemplate stringRedisTemplate;
+    private final SSHHelper sshHelper;
 
     @Autowired
-    public BookController(StringRedisTemplate stringRedisTemplate) {
+    public BookController(StringRedisTemplate stringRedisTemplate, SSHHelper sshHelper) {
         this.stringRedisTemplate = stringRedisTemplate;
+        this.sshHelper = sshHelper;
     }
 
 
-    @CacheLock(prefix = "books",expire = 10000)
     @GetMapping
-    public String query(@CacheParam(name = "token") @RequestParam String token) {
+    public String query(@RequestParam String token) {
         System.out.println("t:"+System.currentTimeMillis());
         return "success - " + token;
     }
@@ -36,6 +36,13 @@ public class BookController {
     @GetMapping("setString")
     public String setString(String param){
         stringRedisTemplate.boundValueOps(param).set(param);
+        return "success";
+    }
+
+    @GetMapping("setSSHCmd")
+    public String setSSHCmd(@RequestParam("command") String command){
+        System.out.println("setSSHCmd:"+command);
+        sshHelper.exec(command);
         return "success";
     }
 
