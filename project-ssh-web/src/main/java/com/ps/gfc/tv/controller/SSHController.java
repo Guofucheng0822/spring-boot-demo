@@ -45,6 +45,10 @@ public class SSHController {
      */
     private static final String EXEC_CMD3 = "unzip -d /app/front3.0 /app/front3.0/dist.zip";
     /**
+     * 钉钉机器人通知
+     */
+    private static final String EXEC_CMD4 = "curl -i -k  -H \"Content-type: application/json\" -X POST -d '{\"msgtype\":\"text\",\"text\":{\"content\":\"[长株潭]......\"},\"at\":{\"atMobiles\":[\"15760937543\"],\"isAtAll\":false}}' https://oapi.dingtalk.com/robot/send?access_token=03b326ab4c8abaab8ff17ea55437bf27c7972fafec2414300390981d10ceaa6f";
+    /**
      * 文件上传路径
      */
     @Value("${file.upload.path:/app/front3.0}")
