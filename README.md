@@ -15,6 +15,10 @@ Spring Boot发送邮件，提供发送邮件功能
 ```
 Spring Boot+dataway工程，提供无需编码发布接口服务 
 ```
+###idempotent-spring-boot-starter工程：
+```
+Spring Boot+redis实现分布式锁，保证接口幂等性服务 
+```
 ## 项目设置
 ### 项目编译
 ```
