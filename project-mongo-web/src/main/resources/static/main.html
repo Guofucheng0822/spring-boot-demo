@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+<form name="upload" action="/mongo/uploadFile" enctype="multipart/form-data" method="post">
+    <input type="file" id="file" name="file">
+    <input type="submit" id="submit" value="提交">
+</form>
+<div class="preview"></div>
+<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/upload.js"></script>
+</body>
+</html>
